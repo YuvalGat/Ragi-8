@@ -5,9 +5,10 @@ from corrections.dashes import *
 from corrections.punctuation import *
 from corrections.double_space import *
 from corrections.initials import *
+from corrections.period import *
 
 # All correction methods
-corrections = [correct_dashes, correct_punctuation, correct_double_space, correct_initials]
+corrections = [correct_dashes, correct_punctuation, correct_double_space, correct_initials, correct_period]
 
 
 def correct_text(text, corrections):
