@@ -2,9 +2,10 @@ import os
 
 from dashes import *
 from punctuation import *
+from double_space import *
 
 # All correction methods
-corrections = [correct_dashes, correct_punctuation]
+corrections = [correct_dashes, correct_punctuation, correct_double_space]
 
 # Apply all corrections
 with open('./text.txt', 'r+') as file:
