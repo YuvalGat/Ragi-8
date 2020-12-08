@@ -1,8 +1,6 @@
-import os
-
-from dashes import *
-from punctuation import *
-from double_space import *
+from corrections.dashes import *
+from corrections.punctuation import *
+from corrections.double_space import *
 
 # All correction methods
 corrections = [correct_dashes, correct_punctuation, correct_double_space]
