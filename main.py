@@ -1,7 +1,10 @@
-from correct_dashes import *
+from dashes import *
+from punctuation import *
 
-corrections = [correct_dashes]
+# All correction methods
+corrections = [correct_dashes, correct_punctuation]
 
+# Apply all corrections
 with open('./text.txt', 'r+') as file:
     text = file.read()
     for correction in corrections:
