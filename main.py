@@ -1,22 +1,27 @@
 import os
+import difflib
 
 from corrections.dashes import *
 from corrections.punctuation import *
 from corrections.double_space import *
-
-import difflib
-import webbrowser
-import pathlib
+from corrections.initials import *
 
 # All correction methods
-corrections = [correct_dashes, correct_punctuation, correct_double_space]
+corrections = [correct_dashes, correct_punctuation, correct_double_space, correct_initials]
+
+
+def correct_text(text, corrections):
+    corrected_text = text
+    for correction in corrections:
+        corrected_text = correction(corrected_text)
+
+    return corrected_text
+
 
 # Apply all corrections
 with open('./text.txt', 'r+') as file:
     text = file.read()
-    corrected_text = text
-    for correction in corrections:
-        corrected_text = correction(corrected_text)
+    corrected_text = correct_text(text, corrections)
 
     with open('./corrected_text.txt', 'w') as corrected_file:
         corrected_file.write(corrected_text)
@@ -32,5 +37,3 @@ with open('./text.txt', 'r+') as file:
         recommendations_file.write(diff)
 
     os.system('open recommendations.html')
-
-    print(corrected_text)
